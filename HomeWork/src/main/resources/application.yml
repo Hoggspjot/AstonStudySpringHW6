@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb      # База данных в памяти (данные не сохраняются)
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: validate         # Проверяет соответствие Entity и БД (не создает таблицы)
+    show-sql: true              # Показывает SQL запросы в логах
+  h2:
+    console:
+      enabled: true             # Включает веб-консоль H2 для просмотра БД
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml  # Путь к миграциям
