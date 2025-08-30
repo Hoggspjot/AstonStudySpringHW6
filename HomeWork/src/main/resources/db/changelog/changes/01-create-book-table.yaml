@@ -1,0 +1,93 @@
+databaseChangeLog:
+  # changeSet - это набор изменений, которые применяются к базе данных как одна транзакция.
+  # У каждого changeSet должен быть уникальный id и автор.
+  - changeSet:
+      # id - уникальный идентификатор миграции. Должен быть уникальным в пределах всего changelog файла.
+      id: 1
+      # author - имя разработчика, создавшего эту миграцию.
+      author: Groovy
+      # changes - список конкретных изменений, которые будут применены к базе данных в этом changeSet.
+      changes:
+        # createTable - команда для создания новой таблицы в базе данных.
+        - createTable:
+            # tableName - имя создаваемой таблицы.
+            tableName: book
+            # columns - список колонок, которые будут созданы в таблице.
+            columns:
+              # column - описание первой колонки.
+              - column:
+                  # name - имя колонки.
+                  name: id
+                  # type - тип данных колонки. bigint используется для хранения значений типа Long в Java.
+                  type: bigint
+                  # autoIncrement: true - указывает, что значение будет автоматически увеличиваться (1, 2, 3...).
+                  autoIncrement: true
+                  # constraints - набор ограничений для этой колонки.
+                  constraints:
+                    # primaryKey: true - делает эту колонку первичным ключом таблицы.
+                    primaryKey: true
+                    # nullable: false - запрещает хранение NULL значений в этой колонке.
+                    nullable: false
+              # column - описание второй колонки.
+              - column:
+                  # name - имя колонки.
+                  name: title
+                  # type - тип данных колонки. varchar(255) используется для строк длиной до 255 символов.
+                  type: varchar(255)
+                  # constraints - набор ограничений для этой колонки.
+                  constraints:
+                    # nullable: false - запрещает хранение NULL значений (обязательное поле).
+                    nullable: false
+              # column - описание третьей колонки.
+              - column:
+                  # name - имя колонки.
+                  name: author
+                  # type - тип данных колонки. varchar(255) используется для строк длиной до 255 символов.
+                  type: varchar(255)
+                  # constraints - набор ограничений для этой колонки.
+                  constraints:
+                    # nullable: false - запрещает хранение NULL значений (обязательное поле).
+                    nullable: false
+              # column - описание четвертой колонки.
+              - column:
+                  # name - имя колонки.
+                  name: isbn
+                  # type - тип данных колонки. varchar(255) используется для строк длиной до 255 символов.
+                  type: varchar(255)
+                  # constraints - набор ограничений для этой колонки.
+                  constraints:
+                    # nullable: false - запрещает хранение NULL значений (обязательное поле).
+                    nullable: false
+                    # unique: true - гарантирует, что все значения в этой колонке будут уникальными.
+                    unique: true
+              # column - описание пятой колонки.
+              - column:
+                  # name - имя колонки.
+                  name: publication_date
+                  # type - тип данных колонки. date используется для хранения даты без времени (LocalDate в Java).
+                  type: date
+              # column - описание шестой колонки.
+              - column:
+                  # name - имя колонки.
+                  name: price
+                  # type - тип данных колонки. decimal(19,2) используется для хранения денежных значений (BigDecimal в Java).
+                  # 19 - общее количество цифр, 2 - количество цифр после запятой.
+                  type: decimal(19,2)
+              # column - описание седьмой колонки.
+              - column:
+                  # name - имя колонки.
+                  name: description
+                  # type - тип данных колонки. varchar(1000) используется для строк длиной до 1000 символов.
+                  type: varchar(1000)
+              # column - описание восьмой колонки.
+              - column:
+                  # name - имя колонки.
+                  name: created_at
+                  # type - тип данных колонки. datetime используется для хранения даты и времени (LocalDateTime в Java).
+                  type: datetime
+              # column - описание девятой колонки.
+              - column:
+                  # name - имя колонки.
+                  name: updated_at
+                  # type - тип данных колонки. datetime используется для хранения даты и времени (LocalDateTime в Java).
+                  type: datetime

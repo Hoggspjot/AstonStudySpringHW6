@@ -13,3 +13,7 @@ spring:
       enabled: true             # Включает веб-консоль H2 для просмотра БД
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml  # Путь к миграциям
+
+#      - `ddl-auto: validate` означает, что Hibernate не будет создавать таблицы.
+#      - Таблицы должны быть созданы через Liquibase миграции.
+#      - H2 консоль доступна по адресу: http://localhost:8080/h2-console.
